@@ -143,11 +143,11 @@ Se modifica el archivo `/etc/vdftpd.conf` para habilitar las conexiones seguras 
 
 Se comprueba desde el usuario de `luis` si se ha autenticado bien:
 
-![Inicio de sesion](luis-login.jpeg)
+![Inicio de sesion](img/luis-login.jpeg)
 
-![Mensaje de advertencia](message-login.jpeg)
+![Mensaje de advertencia](img/message-login.jpeg)
 
-![Candado que muestra que es seguro](candado-user.jpeg)
+![Candado que muestra que es seguro](img/candado-user.jpeg)
 
 ![Me descargo un archivo](img/descarga-archivo-luis.jpeg)
 
