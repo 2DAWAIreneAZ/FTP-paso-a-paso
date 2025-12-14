@@ -67,37 +67,55 @@ Creo los ficheros de prueba que posteriormente utilizaré.
 ![Creación de ficheros que luego se usarán](img/creacion-ficheros.jpeg)
 
 Se modifica el archivo de configuración según los requisitos indicados, aunque antes hay que eliminar los comentarios originales y los sustituyo por comentarios propios para explicar cada directiva:
+
 ![Standalone e IPv6 fuera](img/standalone.jpeg)
+
 ![Mensaje de bienvenida](img/mensaje-bienvenida.jpeg)
+
 ![Para usuarios anonimos](img/usuarios-anonimos.jpeg)
 
 El mensaje definido con `ftpd_banner` es una variable global y solo puede contener un único mensaje. Si se usara para mostrar también el mensaje de los usuarios anónimos, se sobrescribiría al mensaje general y se mostraría a todos los usuarios. Por ello, he utilizado un archivo .message para mostrar un mensaje específico únicamente a los usuarios anónimos, manteniendo separado el mensaje general del servidor.
+
 ![Mensaje usuarios anonimos](img/mensaje-anonimos.jpeg)
+
 ![Tiempo de espera](img/tiempo-espera.jpeg)
+
 ![Control del ancho de banda](img/control-ancho-banda.jpeg)
+
 ![Control anonimos](img/control-anonimos.jpeg)
+
 ![Control locales](img/control-locales.jpeg)
+
 ![Enjaulamiento](img/enjaulamiento.jpeg)
+
 ![No enjaulada](img/maria-noenjaulada.jpeg)
+
 ![Control locales](img/control-locales.jpeg)
 
 En el archivo `vsftpd.chroot_list`, añado a los usuarios que van a ser libres, es decir, que van a poder moverse entre carpetas y que no van a estar únicamente en `/home/<name>`. En este caso, solo tengo que añadir al usuario `maria`.
+
 ![Lista no enjaulados](img/lista-noenjaulados.jpeg)
 
 Tras aplicar los anteriores cambios, reinicio el servidor FTP, compruebo que está activo y que sigue escuchando por el puerto 21/TCP.
+
 ![Reinicio y estado](img/reinicio-estado-puerto.jpeg)
 
 Al comprobar que todo está en order, realizo una prueba con cada usuario distinto para asegurarme:
 
 Usuario `anonymous`
+
 ![Entro en anonimo](img/anonimo-prueba-secuencia.jpeg)
 
 Usuario `maria`
+
 ![Vista gráfica](img/vista-grafica.jpeg)
+
 ![Vista secuencia](img/vista-secuencia.jpeg)
 
 Usuario `luis`
+
 ![Vista grafica luis](img/vista-grafica-luis.jpeg)
+
 ![Vista secuencia luis](img/vista-secuencia-luis.jpeg)
 
 ## Paso 4. Servidor vsftpd seguro
@@ -116,20 +134,29 @@ sudo chown root:root /etc/ssl/certs/irene.test.pem
 ```
 
 Se modifica el archivo `/etc/vdftpd.conf` para habilitar las conexiones seguras mediante SSL/TLS. Tras esto, se reinicia el servidor, se comprueba que esté activo el servicio y que sigue escuchando por el puerto 21.
+
 ![Habilita conexiones seguras](img/conexiones-seguras.jpeg)
+
 ![Reinicio + servicio](img/reinicio-servicio.jpeg)
+
 ![Puerto 21](img/puerto-21.jpeg)
 
 Se comprueba desde el usuario de `luis` si se ha autenticado bien:
+
 ![Inicio de sesion](luis-login.jpeg)
+
 ![Mensaje de advertencia](message-login.jpeg)
+
 ![Candado que muestra que es seguro](candado-user.jpeg)
+
 ![Me descargo un archivo](img/descarga-archivo-luis.jpeg)
 
 Por otro lado, si lo hacemos con `anonymous`:
+
 ![Falla con anónimo](img/error-anonymous.jpeg)
 
 Y por último con `maria`:
+
 ![Acceso seguro maria](img/maria-login.jpeg)
 
 
