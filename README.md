@@ -13,3 +13,13 @@ Además, he modificado sus respectivas referencias dentro de los archivos del se
 
 También he modificado la configuración de mi máquina anfitriona para que el DNS primario apunte a la dirección IP de la máquina virtual, que es donde se aloja el servidor DNS. 
 Comprobé que este cambio fuera válido utilizando la herramienta `nslookup` seguido del nombre de dominio y la IP del servidor DNS.
+
+## Paso 2. Cliente FTP Gráfico
+
+Para esta parte, he decidido instalar el cliente WinSCP, y para comprobar que todo funcionaba bien establecí una conexión anónima `anonymous`, sin contraseña, e intenté bajarme y subir un archivo.
+
+![Intento de bajada](img/intento-bajada.jpeg)
+
+![Intento de subida](img/intento-subida.jpeg)
+
+Como es anónimo, solo puede bajarse archivos.
